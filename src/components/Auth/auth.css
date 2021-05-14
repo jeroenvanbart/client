@@ -1,0 +1,31 @@
+.formcontainer{
+    text-align: left;
+    margin: 50px 10px;
+    background-color: rgba(161, 143, 143, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.formfield{
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: none;
+    
+}
+
+.submitbutton{
+    background-color: rgba(87, 76, 76, 0.5);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: none;
+    width: 200px;
+    align-self: center;
+    margin-bottom: 30px;
+}
