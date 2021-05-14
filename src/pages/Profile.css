@@ -1,0 +1,15 @@
+.profilehead{
+    text-align: center;
+}
+
+.profilehead h3{
+    color: rgba(87, 76, 76, 1);
+    padding: 10px;
+    margin-top: 20px;
+}
+
+.profilehead img{
+    max-height: 30vh;
+    padding: 20px;
+    border-radius: 50%;
+}

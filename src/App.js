@@ -43,11 +43,18 @@ function App() {
       <Navbar userInSession={loggedInUser} setUser={setTheUserToGlobalState} />
       <Switch>
         <Route exact path="/" component={Home} />
-        <Route exact path="/login" render={() => <Redirect to="/profile/:id"/>} />
+        <Route exact path="/login" render={() => <Redirect to={`/profile/${loggedInUser._id}`}/>} />
         <ProtectedRoute
           user={loggedInUser}
           exact
-          path="/profile"
+          path="/profile/:id"
+          component={Profile}
+        />
+        <Route exact path="/signup" render={() => <Redirect to={`/profile/${loggedInUser._id}`}/>} />
+        <ProtectedRoute
+          user={loggedInUser}
+          exact
+          path="/profile/:id"
           component={Profile}
         />
     </Switch>

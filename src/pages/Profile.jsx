@@ -1,29 +1,33 @@
-import axios from 'axios';
-import React from 'react';
+import React, { useState, useEffect } from "react";
+import "./Profile.css";
+import UserService from "../services/UserService";
+import UpdateImg from "../components/Profile/UpdateImg";
 
+const Profile = (props) => {
+  const [details, setDetails] = useState({});
 
-const profile = () => {
+  const getSingleUser = () => {
+    const { id } = props.match.params;
 
-const getinfo =()=>{
-    axios.get("http://localhost:5000/api/profile/:id")
-    .then((data) => {
-        console.log(data)
-    })
-    .catch( error => console.log(error) )
-}
+    const service = new UserService();
 
-getinfo()
+    service
+      .getOneUser(id)
+      .then((responseFromApi) => setDetails(responseFromApi))
+      .catch((error) => {
+        console.error(error);
+      });
+  };
 
-    return (
-        <div>
-        <h1>Welcom User</h1>
-        <img src="" alt="profileImg" />
+  useEffect(getSingleUser, [props.match.params]);
 
-            
-        </div>
-    )
-}
+  return (
+    <div className="profilehead">
+      <h3>Welcome {details.username} </h3>
+      <img src={details.profileImg} alt="profileImg" />
+      <UpdateImg />
+    </div>
+  );
+};
 
-export default profile
-
-
+export default Profile;

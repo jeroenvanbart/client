@@ -10,11 +10,13 @@ class UserService {
     this.service = service;
   }
 
-  getOneprofile = (profileId) =>
-    this.service
-      .get(`/profile/${profileId}`)
-      .then((response) => response.data);
+  getOneUser = (profileId) =>
+    this.service.get(`/profile/${profileId}`).then((response) => response.data);
 
+  updateUser = (profileId, data) =>
+    this.service
+      .put(`/profile/${profileId}`, data)
+      .then((response) => response.data);
 }
 
 export default UserService;
