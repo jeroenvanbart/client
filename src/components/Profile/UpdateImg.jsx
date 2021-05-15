@@ -1,44 +1,41 @@
-import React from "react";
+import React, {useState} from "react";
 import UserService from "../../services/UserService";
 import UploadService from "../../services/UploadService";
+import axios from "axios";
 
-const UpdateImg = () => {
-//   // HANDLE FORM SUBMISSION
-//   const handleFormSubmit = (event) => {
-//     event.preventDefault();
+const initialState = {
+  profileImg: "",
+};
 
-//     const service = new UserService();
+const UpdateImg = (props) => {
+  const [formState, setFormState] = useState(initialState);
+  
 
-//     service
-//       .createProject(formState)
-//       .then(() => {
-//         getData();
-//         setFormState(initialState);
-//       })
-//       .catch((err) => console.error(err));
-//   };
+  const handleFileUpload = (event) => {
+    console.log(event)
+    const uploadData = new FormData(); // FormData represents a form that can upload files
+    uploadData.append("profileImg", event.target.files[0]); // this will represent the uploaded file
 
-//   // HANDLE FILE UPLOAD
-//   const handleFileUpload = (event) => {
-//     const uploadData = new FormData(); // FormData represents a form that can upload files
-//     uploadData.append("imageUrl", event.target.files[0]); // this will represent the uploaded file
+  const service = new UploadService();
 
-//     const service = new UploadService();
+  service
+  .updateProfileImg(uploadData)
+  .then((response) => {
+    console.log(response);
+    setFormState({ ...formState, profileImg: response.cloudinaryUrl });
+  })
+  .catch((err) => console.error(err));
+ 
 
-//     service
-//       .upload(uploadData)
-//       .then((response) => {
-//         console.log(response);
-//         setFormState({ ...formState, imageUrl: response.cloudinaryUrl });
-//       })
-//       .catch((err) => console.error(err));
-//   };
+  }
+
+ 
 
   return (
     <div>
       <form action="">
-        <label htmlFor="imageUrl">Change ProfilePcture</label>
-        <input type="file" name="imageUrl" />
+        <label htmlFor="profileImg">Change ProfilePcture</label>
+        <input type="file" name="profileImg" onChange={handleFileUpload} />
           <button type="submit">Submit</button>
       </form>
     </div>
