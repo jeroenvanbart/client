@@ -35,16 +35,17 @@ class Signup extends Component {
 
   render() {
     return (
-      <div>
+      <div className="formcontainer">
         <div>{this.state.errorMessage && <p>{this.state.errorMessage}</p>}</div>
 
-        <form onSubmit={this.handleFormSubmit}>
+        <form className="form" onSubmit={this.handleFormSubmit}>
           <label>Username:</label>
           <input
             type="text"
             name="username"
             value={this.state.username}
             onChange={(e) => this.handleChange(e)}
+            className="formfield"
           />
 
           <label>Email:</label>
@@ -53,6 +54,7 @@ class Signup extends Component {
             name="email"
             value={this.state.email}
             onChange={(e) => this.handleChange(e)}
+            className="formfield"
           />
 
           <label>Password:</label>
@@ -61,6 +63,7 @@ class Signup extends Component {
             name="password"
             value={this.state.password}
             onChange={(e) => this.handleChange(e)}
+            className="formfield"
           />
           <label>Profile Type</label>
           <select id="usertype" name="usertype" onChange={(e) => this.handleChange(e)}>
@@ -68,7 +71,7 @@ class Signup extends Component {
             <option value={this.state.usertype}>Pet Sitter</option>
           </select>
 
-          <input type="submit" value="Signup" />
+          <input className="submitbutton"  type="submit" value="Signup" />
         </form>
 
         <p>

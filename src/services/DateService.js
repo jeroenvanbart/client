@@ -1,6 +1,6 @@
 import axios from "axios";
 
-class PetService {
+class DateService {
   constructor() {
     let service = axios.create({
       baseURL: "http://localhost:5000/api",
@@ -10,13 +10,13 @@ class PetService {
     this.service = service;
   }
 
-  createPet = (data) =>
-    this.service.post("/pet", data).then((response) => response.data);
+  createDate = (id, data) =>
+    this.service.post(`${id}/avdate`, data).then((response) => response.data);
 
-  getPets = () => this.service.get("/pet").then((response) => response.data);
+  //   getPets = () => this.service.get("/pet").then((response) => response.data);
 
-  getOwnPets = (id) =>
-    this.service.get(`${id}/ownpets`).then((response) => response.data);
+  //   getOwnPets = (id) =>
+  //     this.service.get(`${id}/ownpets`).then((response) => response.data);
 
   //   getOnePet = (petId) =>
   //     this.service.get(`/pet/${petId}`).then((response) => response.data);
@@ -28,4 +28,4 @@ class PetService {
   //     this.service.delete(`/pet/${petId}`).then((response) => response.data);
 }
 
-export default PetService;
+export default DateService;

@@ -1,44 +1,36 @@
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import "./Pets.css";
 
+import React from "react";
 
-import PetService from "../../services/PetService";
+const PetCards = (props) => {
+  const { pets } = props;
 
-class PetCards extends Component {
-  state = {
-    listOfPets: [],
-    listOfMyPets: [],
-  };
-
-  service = new PetService();
-
-  // Api Caller Function
-  getOwnPet = () => {
-    this.service
-      .getPets()
-      .then((responseFromApi) => {
-          console.log(responseFromApi)
-        this.setState({
-          listOfPets: responseFromApi,
-        });
-      })
-      .catch((err) => console.error(err));
-  };
-
-  // MAKE AN API CALL WHEN COMPONENT MOUNTS
-  componentDidMount() {
-    this.getOwnPet();
-  }
-
-  
-
-  render() {
-    return (
+  return (
+    <div>
       <div>
-        <h1>{console.log(this.props.user._id)}</h1>
+        {console.log(pets.responseFromApi)}
+        {pets.responseFromApi &&
+          pets.responseFromApi.map((item) => {
+            return (
+              <div key={item._id} className="petcards">
+                <h3>{item.name}</h3>
+                <img src={item.imageUrl} alt="" />
+                <div className="petcardscontainer">
+                  <div>
+                    
+                  </div>
+
+                  <div>
+                    <p>{item.bio}</p>
+                    <p>{item.notes}</p>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
 
 export default PetCards;

@@ -1,0 +1,34 @@
+.petcards {
+  background-color: rgba(161, 143, 143, 0.8);
+  min-height: 20vh;
+  border-radius: 20px;
+  margin: 10px;
+}
+.petcards h3 {
+  color: white;
+  margin-bottom: 20px;
+}
+
+.petcardscontainer {
+  margin: 10px;
+  gap: 20px;
+  align-items: center;
+  line-height: 1.1em;
+  padding: 30px;
+}
+
+.petcards img {
+  display: inline-block;
+  position: relative;
+  width: 100px;
+  height: 100px;
+  overflow: hidden;
+  border-radius: 50%;
+  
+}
+
+.petcardscontainer p {
+  color: white;
+  text-align: left;
+  margin-bottom: 10px;
+}
