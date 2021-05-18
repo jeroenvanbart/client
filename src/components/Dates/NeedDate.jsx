@@ -1,10 +1,13 @@
 import React, { Component } from "react";
 import DateService from "../../services/DateService";
 
+
 export class NeedDate extends Component {
-  state = { needdatestart: "", needdateend: "" };
+  state = { needdatestart: "", needdateend: ""};
+  
 
   service = new DateService();
+
 
   handleFormSubmit = (event) => {
     event.preventDefault();
@@ -12,15 +15,17 @@ export class NeedDate extends Component {
     const { needdatestart, needdateend } = this.state;
 
     this.service
-      .createDate(this.props.user._id, needdatestart, needdateend)
+      .createNeedDate(this.props.user._id, needdatestart, needdateend)
       .then((response) => {
         this.setState({ needdatestart: "", needdateend: "" });
+        
       })
       .catch((error) => {
         console.error("error");
       });
   };
 
+   
   handleChange = (event) => {
     const { name, value } = event.target;
     this.setState({ ...this.state, [name]: value });
@@ -29,7 +34,7 @@ export class NeedDate extends Component {
   render() {
     return (
       <div>
-        {console.log(this.props.user._id)}
+        <h3>Search for a sitter</h3>
         <form className="form" onSubmit={this.handleFormSubmit}>
           <label for="start">Start date:</label>
           <input

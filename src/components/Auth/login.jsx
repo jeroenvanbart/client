@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import "./auth.css";
 import AuthService from "../../services/AutService";
 
-
 class Login extends Component {
   state = { email: "", password: "", errorMessage: "" };
 
@@ -17,18 +16,11 @@ class Login extends Component {
     this.service
       .login(email, password)
       .then((response) => {
-        console.log(response._id);
-
         this.setState({ email: "", password: "" });
         this.props.setUser(response);
-        
       })
       .catch((error) => {
-        if (error.response.data) {
-          const { message } = error.response.data;
-          this.setState({ ...this.state, errorMessage: message });
-        }
-        console.error(error.response.data);
+        console.error(error);
       });
   };
 

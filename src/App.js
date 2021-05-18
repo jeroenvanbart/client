@@ -6,7 +6,7 @@ import { Switch, Route, Redirect } from "react-router-dom";
 import Signup from "./components/Auth/Signup.jsx";
 import Login from "./components/Auth/login.jsx";
 import Navbar from './components/Navbar/Navbar'
-import Home from './components/Home/Home'
+import Home from './pages/Home/Home'
 import Profile from './pages/Profile'
 import ProtectedRoute from "./components/Auth/ProtectedRoute";
 

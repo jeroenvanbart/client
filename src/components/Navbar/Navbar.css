@@ -4,6 +4,7 @@
     justify-content: space-between;
     padding: 20px;
     position: sticky;
+    z-index: 1;
     top: 0;
     height: 10vh;
 }

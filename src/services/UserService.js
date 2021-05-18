@@ -13,6 +13,9 @@ class UserService {
   getOneUser = (profileId) =>
     this.service.get(`/profile/${profileId}`).then((response) => response.data);
 
+  getAllUsers = () =>
+    this.service.get(`/users`).then((response) => response.data);
+
   updateUser = (profileId, data) =>
     this.service
       .put(`/profile/${profileId}`, data)

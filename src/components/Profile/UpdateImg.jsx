@@ -1,7 +1,6 @@
 import React, {useState} from "react";
-import UserService from "../../services/UserService";
 import UploadService from "../../services/UploadService";
-import axios from "axios";
+
 
 const initialState = {
   profileImg: "",

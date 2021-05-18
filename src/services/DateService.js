@@ -10,10 +10,24 @@ class DateService {
     this.service = service;
   }
 
-  createDate = (id, data) =>
-    this.service.post(`${id}/avdate`, data).then((response) => response.data);
+  createNeedDate = (id, needdatestart, needdateend) =>
+    this.service
+      .post(`${id}/needdate`, { needdatestart, needdateend })
+      .then((response) => {});
 
-  //   getPets = () => this.service.get("/pet").then((response) => response.data);
+  createAvDate = (id, avdatestart, avdateend) =>
+    this.service
+      .post(`${id}/avdate`, { avdatestart, avdateend })
+      .then((response) => {});
+
+  getOwnAvDates = (id) =>
+    this.service.get(`${id}/avdate`).then((response) => response.data);
+
+  getOwnNeedDates = (id) =>
+    this.service.get(`${id}/needdate`).then((response) => response.data);
+
+  getAllAvDates = (id) =>
+    this.service.get(`${id}/allavdate`).then((response) => response.data);
 
   //   getOwnPets = (id) =>
   //     this.service.get(`${id}/ownpets`).then((response) => response.data);
@@ -23,9 +37,11 @@ class DateService {
 
   //   updatePet = (petId, data) =>
   //     this.service.put(`/pet/${petId}`, data).then((response) => response.data);
+  removeNeedDate = (DateId) =>
+  this.service.delete(`/needdate/${DateId}`).then((response) => response.data);
 
-  //   removePet = (petId) =>
-  //     this.service.delete(`/pet/${petId}`).then((response) => response.data);
+  removeAvDate = (DateId) =>
+    this.service.delete(`/avdate/${DateId}`).then((response) => response.data);
 }
 
 export default DateService;

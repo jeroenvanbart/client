@@ -1,7 +1,7 @@
 import React, { useState } from "react";
+import { Redirect } from "react-router-dom";
 import PetService from "../../services/PetService";
 import UploadService from "../../services/UploadService";
-
 
 const initialState = {
   name: "",
@@ -10,8 +10,11 @@ const initialState = {
   imageUrl: "",
 };
 
-const UploadPets = () => {
+const UploadPets = (props) => {
   const [formState, setFormState] = useState(initialState);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+
+  
 
   // HANDLE THE CHANGES IN THE INPUT FIELDS
   const handleInputChange = (event) => {
@@ -29,6 +32,8 @@ const UploadPets = () => {
       .createPet(formState)
       .then(() => {
         setFormState(initialState);
+        setIsSubmitted(true);
+        props.backToDashboard()
       })
       .catch((err) => console.error(err));
   };
@@ -47,16 +52,19 @@ const UploadPets = () => {
       .catch((err) => console.error(err));
   };
 
-  return (
-    <div>
-      <h2>Upload your Pets</h2>
-      <form onSubmit={handleFormSubmit}>
+  return isSubmitted ? (
+    <Redirect to= "/" />
+  ) : (
+    <div className="formcontainer">
+      <h3>Upload your Pets</h3>
+      <form className="form" onSubmit={handleFormSubmit}>
         <label>Name:</label>
         <input
           type="text"
           name="name"
           value={formState.name}
           onChange={handleInputChange}
+          className="formfield"
         />
         <label>bio:</label>
         <textarea
@@ -64,21 +72,40 @@ const UploadPets = () => {
           name="bio"
           value={formState.bio}
           onChange={handleInputChange}
+          className="formfield"
         />
-        <label>notes:</label>
+        <label>Special notes:</label>
         <textarea
           type="text"
           name="notes"
           value={formState.notes}
           onChange={handleInputChange}
+          className="formfield"
         />
-        <label htmlFor="imageUrl">Description:</label>
+
+        <label>My pet is a</label>
+        <select
+          id="pettype"
+          name="pettype"
+          onChange={handleInputChange}
+          className="formfield"
+        >
+          <option value={formState.pettype}>Dog</option>
+          <option value={formState.pettype}>Cat</option>
+          <option value={formState.pettype}>Rodent</option>
+          <option value={formState.pettype}>Fish</option>
+          <option value={formState.pettype}>Bird</option>
+        </select>
+
+        <label htmlFor="imageUrl">Upload image</label>
         <input type="file" name="imageUrl" onChange={handleFileUpload} />
 
         {formState.imageUrl ? (
-          <button type="submit">Submit</button>
+          <button className="dashboardButton" type="submit">
+            Submit
+          </button>
         ) : (
-          <button disabled type="submit">
+          <button className="dashboardButton" disabled type="submit">
             Submit
           </button>
         )}

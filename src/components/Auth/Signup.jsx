@@ -1,22 +1,23 @@
 import React, { Component } from "react";
 import AuthService from "../../services/AutService.js";
 import { Link } from "react-router-dom";
+import UploadService from '../../services/UploadService'
 
 class Signup extends Component {
-  state = { username: "", email:"", password: "", errorMessage: "" };
+  state = { username: "", email: "", password: "", profileImg:"", errorMessage: "" };
 
   service = new AuthService();
 
   handleFormSubmit = (event) => {
     event.preventDefault();
 
-    const { username, email, password, usertype } = this.state;
+    const { username, email, password, profileImg } = this.state;
 
     this.service
-      .signup(username, email, password, usertype)
+      .signup(username, email, password, profileImg)
       .then((response) => {
-        console.log(response)
-        this.setState({ username: "", email: "", password: "" });
+        console.log(response);
+        this.setState({ username: "", email: "", password: "" , profileImg});
         this.props.setUser(response);
       })
       .catch((error) => {
@@ -27,6 +28,21 @@ class Signup extends Component {
         console.log(error);
       });
   };
+
+  handleFileUpload = (event) => {
+    const uploadData = new FormData(); // FormData represents a form that can upload files
+    uploadData.append("profileImg", event.target.files[0]); // this will represent the uploaded file
+
+    const service = new UploadService();
+
+    service
+      .uploadProfile(uploadData)
+      .then((response) => {
+        this.setState({ ...this.state, profileImg: response.cloudinaryUrl });
+      })
+      .catch((err) => console.error(err));
+  };
+
 
   handleChange = (event) => {
     const { name, value } = event.target;
@@ -65,13 +81,24 @@ class Signup extends Component {
             onChange={(e) => this.handleChange(e)}
             className="formfield"
           />
-          <label>Profile Type</label>
-          <select id="usertype" name="usertype" onChange={(e) => this.handleChange(e)}>
-            <option value={this.state.usertype}>Pet Owner</option>
-            <option value={this.state.usertype}>Pet Sitter</option>
-          </select>
+          <label htmlFor="profilImg">Upload image</label>
+          <input
+            type="file"
+            name="profilImg"
+            onChange={this.handleFileUpload}
+          />
 
-          <input className="submitbutton"  type="submit" value="Signup" />
+          {this.state.profileImg ? (
+            <button className="dashboardButton" type="submit">
+              Submit
+            </button>
+          ) : (
+            <button className="dashboardButton" disabled type="submit">
+              Submit
+            </button>
+          )}
+
+          <input className="submitbutton" type="submit" value="Signup" />
         </form>
 
         <p>

@@ -22,6 +22,16 @@ class UploadService {
       });
   };
 
+  uploadProfile = (theFile) => {
+    return this.service
+      .post("/upload/profile", theFile)
+      .then((response) => response.data)
+      .catch((err) => {
+        console.error(err);
+        throw err;
+      });
+  };
+
   updateProfileImg = (profileImg) => {
     return this.service.put("/profile/:id/upload", profileImg)
     .then((response) => response.data)

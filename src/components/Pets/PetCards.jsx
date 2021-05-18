@@ -8,18 +8,14 @@ const PetCards = (props) => {
   return (
     <div>
       <div>
-        {console.log(pets.responseFromApi)}
         {pets.responseFromApi &&
           pets.responseFromApi.map((item) => {
             return (
               <div key={item._id} className="petcards">
                 <h3>{item.name}</h3>
+                <p>is a {item.pettype}</p>
                 <img src={item.imageUrl} alt="" />
                 <div className="petcardscontainer">
-                  <div>
-                    
-                  </div>
-
                   <div>
                     <p>{item.bio}</p>
                     <p>{item.notes}</p>

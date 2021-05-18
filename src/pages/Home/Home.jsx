@@ -5,7 +5,7 @@ import './Home.css'
 const Home = () => {
   return (
     <div className="homebody">
-      <h1>Pawtell</h1>
+      <h1>Pawtel</h1>
       <section>
         <div>
           <p className="quote"> <i>"There are only two sorts of people in the world. People with pets and people without pets."</i> </p>

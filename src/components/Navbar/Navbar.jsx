@@ -34,8 +34,9 @@ const Navbar = ({ userInSession, setUser }) => {
           </li>
           <li>
             <Link
-              to="/profile"
+              to={`/profile/${loggedInUser._id}`}
               style={{ textDecoration: "none", color: "white" }}
+              user={loggedInUser}
             >
               profile
             </Link>
