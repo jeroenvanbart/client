@@ -2,6 +2,7 @@ import React from "react";
 import { Route, Redirect } from "react-router-dom";
 
 const ProtectedRoute = ({ component: Component, user, ...rest }) => {
+  console.log(user._id)
   return (
     <Route
       {...rest}

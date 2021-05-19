@@ -23,7 +23,7 @@ const ShowNeedDates = (props) => {
 
   useEffect(() => {
     need && need.length && setNeed(responseFromApi);
-  }, [deleteDate]);
+  }, [responseFromApi, deleteDate]);
 
   return (
     <div>
@@ -32,7 +32,6 @@ const ShowNeedDates = (props) => {
         need.map((item) => {
           return (
             <div key={item._id}>
-              {item ? (
                 <div>
                   <div>
                     <p>
@@ -46,11 +45,6 @@ const ShowNeedDates = (props) => {
                     </button>
                   </div>
                 </div>
-              ) : (
-                <div>
-                  <p>You have no selected dates</p>
-                </div>
-              )}
             </div>
           );
         })

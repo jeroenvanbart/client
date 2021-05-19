@@ -32,8 +32,7 @@ const UploadPets = (props) => {
       .createPet(formState)
       .then(() => {
         setFormState(initialState);
-        setIsSubmitted(true);
-        props.backToDashboard()
+        window.location.reload(false);
       })
       .catch((err) => console.error(err));
   };
@@ -52,9 +51,7 @@ const UploadPets = (props) => {
       .catch((err) => console.error(err));
   };
 
-  return isSubmitted ? (
-    <Redirect to= "/" />
-  ) : (
+  return (
     <div className="formcontainer">
       <h3>Upload your Pets</h3>
       <form className="form" onSubmit={handleFormSubmit}>

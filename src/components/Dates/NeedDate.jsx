@@ -35,7 +35,7 @@ export class NeedDate extends Component {
       <div>
         <h3>Search for a sitter</h3>
         <form className="form" onSubmit={this.handleFormSubmit}>
-          <label for="start">Start date:</label>
+          <label htmlFor="start">Start date:</label>
           <input
             type="date"
             id="start"
@@ -43,7 +43,7 @@ export class NeedDate extends Component {
             value={this.state.needdatestart}
             onChange={(e) => this.handleChange(e)}
           />
-          <label for="end">End date:</label>
+          <label htmlFor="end">End date:</label>
 
           <input
             type="date"

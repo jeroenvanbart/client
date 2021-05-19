@@ -32,8 +32,12 @@ const SearchSitter = (props) => {
   };
 
   useEffect(() => {
-    allADates && allADates.length && responseFromApi && responseFromApi.length && dateCompare();
-  }, [allADates, dateCompare]);
+    allADates &&
+      allADates.length &&
+      responseFromApi &&
+      responseFromApi.length &&
+      dateCompare();
+  }, [allADates]);
 
   const getSitter = () => {
     let aSitters = [];
@@ -50,7 +54,7 @@ const SearchSitter = (props) => {
 
   useEffect(() => {
     search && search.length && getSitter();
-  }, [search, getSitter]);
+  }, [search]);
 
   const uniqueSitters = () => {
     setUnique([...new Set(sitters.map((item) => item))]);
@@ -58,7 +62,7 @@ const SearchSitter = (props) => {
 
   useEffect(() => {
     sitters && sitters.length && uniqueSitters();
-  }, [sitters, uniqueSitters]);
+  }, [sitters]);
 
   return (
     <div>
@@ -69,6 +73,7 @@ const SearchSitter = (props) => {
             <div key={item._id}>
               <h3>{item.username}</h3>
               <img className="datesimg" src={item.profileImg} alt="" />
+              <p>{item.email}</p>
             </div>
           );
         })

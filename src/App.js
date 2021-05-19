@@ -14,6 +14,7 @@ import AuthService from "./services/AutService";
 
 function App() {
   const [loggedInUser, setLoggedInUser] = useState(null);
+  
 
   const service = new AuthService();
 
@@ -30,7 +31,7 @@ function App() {
         });
     }
   };
-
+  
   // SET THE GLOBAL APP STATE WITH THE LOGGED IN USER
   const setTheUserToGlobalState = (userObj) => setLoggedInUser(userObj);
 

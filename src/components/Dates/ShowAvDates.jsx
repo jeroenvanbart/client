@@ -23,7 +23,7 @@ const ShowAvDates = (props) => {
 
   useEffect(() => {
     empty && empty.length && setEmpty(responseFromApi);
-  }, [deleteDate]);
+  }, [responseFromApi, deleteDate]);
 
   return (
     <div>
@@ -32,7 +32,6 @@ const ShowAvDates = (props) => {
         empty.map((item) => {
           return (
             <div key={item._id}>
-              {item ? (
                 <div>
                   <div>
                     <p>
@@ -45,10 +44,7 @@ const ShowAvDates = (props) => {
                       Delete date
                     </button>
                   </div>
-                </div>
-              ) : (
-                <p>You did not make yourself availible</p>
-              )}
+                </div>   
             </div>
           );
         })

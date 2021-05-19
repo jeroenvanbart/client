@@ -1,9 +1,10 @@
 import axios from "axios";
+const {REACT_APP_BACKEND_BASE_URL} = process.env;
 
 class PetService {
   constructor() {
     let service = axios.create({
-      baseURL: "http://localhost:5000/api",
+      baseURL: REACT_APP_BACKEND_BASE_URL,
       withCredentials: true,
     });
 
@@ -24,8 +25,8 @@ class PetService {
   //   updatePet = (petId, data) =>
   //     this.service.put(`/pet/${petId}`, data).then((response) => response.data);
 
-  //   removePet = (petId) =>
-  //     this.service.delete(`/pet/${petId}`).then((response) => response.data);
+    removePet = (petId) =>
+      this.service.delete(`/pet/${petId}`).then((response) => response.data);
 }
 
 export default PetService;
