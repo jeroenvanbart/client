@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import DateService from "../../services/DateService";
 
 export class AvDate extends Component {
-  state = { needdatestart: "", needdateend: ""};
+  state = { needdatestart: "", needdateend: "" };
   service = new DateService();
 
   handleFormSubmit = (event) => {
@@ -13,8 +13,7 @@ export class AvDate extends Component {
     this.service
       .createAvDate(this.props.user._id, avdatestart, avdateend)
       .then((response) => {
-        this.setState({ avdatestart: "", avdateend: ""});
-        
+        this.setState({ avdatestart: "", avdateend: "" });
       })
       .catch((error) => {
         console.error("error");
@@ -29,30 +28,33 @@ export class AvDate extends Component {
   render() {
     return (
       <div>
-        <h3>Select your availibility to be a petsitter</h3>
+        <h3>Select your availibility</h3>
         <form className="form" onSubmit={this.handleFormSubmit}>
+          <div>
+            <label for="start">Start date:  </label>
+            <input
+              type="date"
+              id="start"
+              name="avdatestart"
+              value={this.state.avdatestart}
+              onChange={(e) => this.handleChange(e)}
+            />
+          </div>
+          <div>
+            <label for="end">End date:  </label>
 
-          <label for="start">Start date:</label>
-          <input
-            type="date"
-            id="start"
-            name="avdatestart"
-            value={this.state.avdatestart}
-            onChange={(e) => this.handleChange(e)}
-          />
-          <label for="end">End date:</label>
-
-          <input
-            type="date"
-            id="end"
-            name="avdateend"
-            value={this.state.avdateend}
-            onChange={(e) => this.handleChange(e)}
-          />
+            <input
+              type="date"
+              id="end"
+              name="avdateend"
+              value={this.state.avdateend}
+              onChange={(e) => this.handleChange(e)}
+            />
+          </div>
           <input className="submitbutton" type="submit" value="Submit" />
         </form>
-      </div>)
-    
+      </div>
+    );
   }
 }
 

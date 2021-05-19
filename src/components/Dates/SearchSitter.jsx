@@ -37,7 +37,7 @@ const SearchSitter = (props) => {
       responseFromApi &&
       responseFromApi.length &&
       dateCompare();
-  }, [allADates]);
+  }, [allADates, responseFromApi]);
 
   const getSitter = () => {
     let aSitters = [];

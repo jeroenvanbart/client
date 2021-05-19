@@ -129,7 +129,7 @@ const Profile = (props) => {
         <h3>Welcome {details.username} </h3>
         <div className="dashboardButtons">
           <button onClick={editOptions}>Edit profile</button>
-          <button onClick={addPets}>Add pets</button>
+          <button onClick={addPets}>Edit Pets</button>
         </div>
       </div>
       <div>
@@ -191,7 +191,7 @@ const Profile = (props) => {
                 <button className="dashboardButton" onClick={backToDashboard}>
                   Back to Dashboard
                 </button>
-                <UploadPets user={details} back={backToDashboard} />
+                <UploadPets user={details} pets={listOfPets} back={backToDashboard} />
               </div>
             );
           }
