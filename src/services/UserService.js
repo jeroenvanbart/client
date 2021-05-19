@@ -21,6 +21,12 @@ class UserService {
     this.service
       .put(`/profile/${profileId}`, data)
       .then((response) => response.data);
+
+  sendEmail =(email, subject, message, useremail ) => {
+    this.service
+    .post('/send-email', {email, subject, message, useremail} )
+    .then((response) => response.data)
+  }
 }
 
 export default UserService;

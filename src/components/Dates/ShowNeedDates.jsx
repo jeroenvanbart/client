@@ -32,15 +32,15 @@ const ShowNeedDates = (props) => {
         need.map((item) => {
           return (
             <div key={item._id}>
-                <div>
-                  <div>
+                <div className="petcards">
+                  <div className="petcardscontainer">
                     <p>
                       From: {item.needdatestart.toLocaleString().split("T")[0]}
                     </p>
                     <p>To: {item.needdateend.toLocaleString().split("T")[0]}</p>
                   </div>
                   <div>
-                    <button onClick={() => deleteDate(item._id)}>
+                    <button className="dashboardButton" onClick={() => deleteDate(item._id)}>
                       Delete date
                     </button>
                   </div>

@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
 import "./Dates.css";
+import ContactForm from "../Contact/ContactForm";
 
 const SearchSitter = (props) => {
   const [search, setSearch] = useState([]);
   const [sitters, setSitter] = useState([]);
   const [unique, setUnique] = useState([]);
   const [message, setMessage] = useState("");
+  const [contact, setContact] = useState(false);
 
   const { allADates } = props.allavdates;
   const { responseFromApi } = props.needdates;
@@ -52,6 +54,10 @@ const SearchSitter = (props) => {
     }
   };
 
+  const contactfield = () => {
+    !contact ? setContact(true) : setContact(false);
+  };
+
   useEffect(() => {
     search && search.length && getSitter();
   }, [search]);
@@ -74,6 +80,14 @@ const SearchSitter = (props) => {
               <h3>{item.username}</h3>
               <img className="datesimg" src={item.profileImg} alt="" />
               <p>{item.email}</p>
+              <button className="dashboardButton" onClick={contactfield}>
+                Send a message
+              </button>
+              {contact && (
+                <div>
+                  <ContactForm data={users} sitter={item.email} />
+                </div>
+              )}
             </div>
           );
         })

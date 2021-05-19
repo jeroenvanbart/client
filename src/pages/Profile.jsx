@@ -154,6 +154,7 @@ const Profile = (props) => {
                   allavdates={AllAvDates}
                   users={allUsers}
                   needdates={listNeedDates}
+                  user={details}
                 />
                 <ShowAvDates avdates={listAvDates} />
               </div>
