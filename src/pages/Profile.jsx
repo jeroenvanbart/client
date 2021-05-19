@@ -27,7 +27,7 @@ const Profile = (props) => {
   };
   const backToDashboard = () => {
     setDiv("petCard");
-    
+    window.location.reload(false);
   };
   const searchDiv = () => {
     setDiv("search");

@@ -6,7 +6,7 @@ const ShowAvDates = (props) => {
   const [empty, setEmpty] = useState([]);
 
   useEffect(() => {
-    setEmpty(responseFromApi);
+    responseFromApi && responseFromApi.length && setEmpty(responseFromApi);
   }, [responseFromApi]);
 
   const deleteDate = (id) => {
@@ -15,15 +15,15 @@ const ShowAvDates = (props) => {
     service
       .removeAvDate(id)
       .then((response) => {
-        setEmpty(responseFromApi)
+        setEmpty(responseFromApi);
         window.location.reload(false);
       })
       .catch((err) => console.error(err));
   };
 
   useEffect(() => {
-    setEmpty(responseFromApi);
-  }, [empty, deleteDate]);
+    empty && empty.length && setEmpty(responseFromApi);
+  }, [deleteDate]);
 
   return (
     <div>
@@ -32,15 +32,23 @@ const ShowAvDates = (props) => {
         empty.map((item) => {
           return (
             <div key={item._id}>
-              <div>
-                <p>From: {item.avdatestart.toLocaleString().split("T")[0]}</p>
-                <p>To: {item.avdateend.toLocaleString().split("T")[0]}</p>
-              </div>
-              <div>
-                <button onClick={() => deleteDate(item._id)}>
-                  Delete date
-                </button>
-              </div>
+              {item ? (
+                <div>
+                  <div>
+                    <p>
+                      From: {item.avdatestart.toLocaleString().split("T")[0]}
+                    </p>
+                    <p>To: {item.avdateend.toLocaleString().split("T")[0]}</p>
+                  </div>
+                  <div>
+                    <button onClick={() => deleteDate(item._id)}>
+                      Delete date
+                    </button>
+                  </div>
+                </div>
+              ) : (
+                <p>You did not make yourself availible</p>
+              )}
             </div>
           );
         })

@@ -18,7 +18,6 @@ export class NeedDate extends Component {
       .createNeedDate(this.props.user._id, needdatestart, needdateend)
       .then((response) => {
         this.setState({ needdatestart: "", needdateend: "" });
-        
       })
       .catch((error) => {
         console.error("error");

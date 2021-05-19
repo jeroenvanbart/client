@@ -42,8 +42,7 @@ const SearchSitter = (props) => {
         if (users[i]._id === allADates[j].owner) {
           aSitters.push(users[i]);
           setSitter(aSitters);
-        } else {
-          console.log("nope");
+          return;
         }
       }
     }

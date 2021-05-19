@@ -15,7 +15,6 @@ export class AvDate extends Component {
       .then((response) => {
         this.setState({ avdatestart: "", avdateend: ""});
         
-        
       })
       .catch((error) => {
         console.error("error");

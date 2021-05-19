@@ -65,6 +65,7 @@ const UploadPets = (props) => {
           value={formState.name}
           onChange={handleInputChange}
           className="formfield"
+          required
         />
         <label>bio:</label>
         <textarea
@@ -73,6 +74,7 @@ const UploadPets = (props) => {
           value={formState.bio}
           onChange={handleInputChange}
           className="formfield"
+          required
         />
         <label>Special notes:</label>
         <textarea
@@ -89,6 +91,7 @@ const UploadPets = (props) => {
           name="pettype"
           onChange={handleInputChange}
           className="formfield"
+          required
         >
           <option value={formState.pettype}>Dog</option>
           <option value={formState.pettype}>Cat</option>
@@ -98,7 +101,7 @@ const UploadPets = (props) => {
         </select>
 
         <label htmlFor="imageUrl">Upload image</label>
-        <input type="file" name="imageUrl" onChange={handleFileUpload} />
+        <input required type="file" name="imageUrl" onChange={handleFileUpload} />
 
         {formState.imageUrl ? (
           <button className="dashboardButton" type="submit">

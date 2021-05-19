@@ -62,6 +62,7 @@ class Signup extends Component {
             value={this.state.username}
             onChange={(e) => this.handleChange(e)}
             className="formfield"
+            required
           />
 
           <label>Email:</label>
@@ -71,6 +72,7 @@ class Signup extends Component {
             value={this.state.email}
             onChange={(e) => this.handleChange(e)}
             className="formfield"
+            required
           />
 
           <label>Password:</label>
@@ -80,25 +82,23 @@ class Signup extends Component {
             value={this.state.password}
             onChange={(e) => this.handleChange(e)}
             className="formfield"
+            required
           />
           <label htmlFor="profilImg">Upload image</label>
           <input
             type="file"
             name="profilImg"
             onChange={this.handleFileUpload}
+            required
           />
 
           {this.state.profileImg ? (
-            <button className="dashboardButton" type="submit">
-              Submit
-            </button>
+            <input className="submitbutton" type="submit" value="Signup" />
           ) : (
-            <button className="dashboardButton" disabled type="submit">
-              Submit
-            </button>
+            <input className="submitbutton" type="submit" value="Signup" disabled />
           )}
 
-          <input className="submitbutton" type="submit" value="Signup" />
+          
         </form>
 
         <p>
