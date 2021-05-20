@@ -15,7 +15,6 @@ const UploadPets = (props) => {
 
   const { responseFromApi } = props.pets;
 
-  // HANDLE THE CHANGES IN THE INPUT FIELDS
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setFormState({ ...formState, [name]: value, id: props.user._id });
@@ -25,7 +24,6 @@ const UploadPets = (props) => {
     setPet(responseFromApi);
   }, [responseFromApi]);
 
-  // HANDLE FORM SUBMISSION
   const handleFormSubmit = (event) => {
     event.preventDefault();
 
@@ -41,8 +39,8 @@ const UploadPets = (props) => {
   };
 
   const handleFileUpload = (event) => {
-    const uploadData = new FormData(); // FormData represents a form that can upload files
-    uploadData.append("imageUrl", event.target.files[0]); // this will represent the uploaded file
+    const uploadData = new FormData(); 
+    uploadData.append("imageUrl", event.target.files[0]);
 
     const service = new UploadService();
 
@@ -64,10 +62,6 @@ const UploadPets = (props) => {
       })
       .catch((err) => console.error(err));
   };
-
-  // useEffect(() => {
-  //   pet && pet.length && setPet(responseFromApi);
-  // }, [responseFromApi, deletePet]);
 
   useEffect(() => {
     setPet(responseFromApi);
@@ -139,25 +133,27 @@ const UploadPets = (props) => {
           )}
         </form>
       </div>
-      {pet &&
-        pet.map((item) => {
-          return (
-            <div className="petcards" key={item._id}>
-              <div>
-                <h3>{item.name}</h3>
-                <img src={item.imageUrl} alt="" />
+      <div className="pets">
+        {pet &&
+          pet.map((item) => {
+            return (
+              <div className="petcards" key={item._id}>
+                <div>
+                  <h3>{item.name}</h3>
+                  <img src={item.imageUrl} alt="" />
+                </div>
+                <div>
+                  <button
+                    className="dashboardButton"
+                    onClick={() => deletePet(item._id)}
+                  >
+                    Delete pet
+                  </button>
+                </div>
               </div>
-              <div>
-                <button
-                  className="dashboardButton"
-                  onClick={() => deletePet(item._id)}
-                >
-                  Delete pet
-                </button>
-              </div>
-            </div>
-          );
-        })}
+            );
+          })}
+      </div>
     </div>
   );
 };

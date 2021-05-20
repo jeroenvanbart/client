@@ -38,7 +38,7 @@ const Navbar = ({ userInSession, setUser }) => {
               style={{ textDecoration: "none", color: "white" }}
               user={loggedInUser}
             >
-              profile
+              Dashboard
             </Link>
           </li>
         </ul>

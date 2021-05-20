@@ -1,5 +1,5 @@
 import axios from "axios";
-const {REACT_APP_BACKEND_BASE_URL} = process.env;
+const { REACT_APP_BACKEND_BASE_URL } = process.env;
 
 class UserService {
   constructor() {
@@ -22,12 +22,19 @@ class UserService {
       .put(`/profile/${profileId}`, data)
       .then((response) => response.data);
 
-  sendEmail =(FormData) => {
-    console.log(FormData)
+  sendEmail = (FormData) => {
     return this.service
-    .post('/send-email', FormData)
-    .then((response) => response.data)
+      .post("/send-email", FormData)
+      .then((response) => response.data);
+  };
+
+  updateUser = (userId, data) => {
+    console.log(data)
+    return this.service
+    .put(`/profile/${userId}/update`, data)
+    .then((response) => response.data);
   }
+   
 }
 
 export default UserService;

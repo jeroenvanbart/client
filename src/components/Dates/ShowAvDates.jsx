@@ -21,9 +21,6 @@ const ShowAvDates = (props) => {
       .catch((err) => console.error(err));
   };
 
-  // useEffect(() => {
-  //   empty && empty.length && setEmpty(responseFromApi);
-  // }, [responseFromApi, deleteDate]);
 
   useEffect(() => {
     setEmpty(responseFromApi);

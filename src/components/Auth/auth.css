@@ -41,3 +41,23 @@
   border: none;
   
 }
+@media screen and (min-width: 600px) {
+
+  .formcontainer {
+    
+    margin: 50px 20%;
+    
+  }
+
+}
+
+@media screen and (min-width: 900px) {
+
+ 
+  .formcontainer {
+    
+    margin: 50px 30%;
+    
+  }
+
+}

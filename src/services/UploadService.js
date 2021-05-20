@@ -30,8 +30,8 @@ class UploadService {
       });
   };
 
-  updateProfileImg = (profileImg) => {
-    return this.service.put("/profile/:id/upload", profileImg)
+  updateProfileImg = (theFile) => {
+    return this.service.post("/profile/:id/upload", theFile)
     .then((response) => response.data)
       .catch((err) => {
         console.error(err);
