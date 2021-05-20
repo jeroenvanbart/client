@@ -7,12 +7,9 @@ class UploadService {
       baseURL: REACT_APP_BACKEND_BASE_URL,
       withCredentials: true,
     });
-
     this.service = service;
-
   }
 
-  // Method to use for uploading an image
   upload = (theFile) => {
     return this.service
       .post("/upload", theFile)
