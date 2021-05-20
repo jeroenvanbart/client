@@ -7,3 +7,68 @@
     border-radius: 50%;
     
   }
+
+  .datecards {
+    background-color: rgba(161, 143, 143, 0.8);
+    min-height: 20vh;
+    border-radius: 20px;
+    margin: 10px;
+  }
+  .datecards h3 {
+    color: white;
+    margin-bottom: 20px;
+  }
+  
+  .datecardscontainer {
+    margin: 10px;
+    gap: 20px;
+    align-items: center;
+    line-height: 1.1em;
+    padding: 30px;
+  }
+  
+ 
+  
+  .datecardscontainer p {
+    color: white;
+    text-align: left;
+    margin-bottom: 10px;
+  }
+  
+  
+  @media screen and (min-width: 600px) {
+  
+    .pets{
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .datecards {
+      background-color: rgba(161, 143, 143, 0.8);
+      min-height: 20vh;
+      min-width: 20vw;
+      border-radius: 20px;
+      margin: 10px;
+      
+    }
+  
+  }
+  
+  @media screen and (min-width: 900px) {
+  
+    .pets{
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .datecards {
+      background-color: rgba(161, 143, 143, 0.8);
+      min-height: 20vh;
+      min-width: 28vw;
+      border-radius: 20px;
+      margin: 10px;
+      
+    }
+  
+  
+  }

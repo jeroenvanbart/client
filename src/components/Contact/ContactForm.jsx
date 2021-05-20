@@ -48,11 +48,11 @@ const ContactForm = (props) => {
 
   return (
     <div>
-      <div>
+      <div className="formcontainer">
         <form className="form" onSubmit={handleFormSubmit}>
           <label htmlFor="">Subject</label>
           <input
-            className="passwordinput"
+            className="formfieldmail"
             type="text"
             name="subject"
             required
@@ -71,9 +71,10 @@ const ContactForm = (props) => {
             value={formState.message}
             placeholder="Type your email here...."
             onChange={handleInputChange}
+            className="formfieldmail"
           />
 
-          <button type="submit">Submit</button>
+          <button className="dashboardButton" type="submit">Submit</button>
         </form>
       </div>
     </div>

@@ -28,12 +28,13 @@ const ShowAvDates = (props) => {
   return (
     <div>
       <h3>You are availible on these dates</h3>
+      <div className="pets">
       {empty && empty.length ? (
         empty.map((item) => {
           return (
             <div key={item._id}>
-                <div className="petcards">
-                  <div className="petcardscontainer">
+                <div className="datecards">
+                  <div className="datecardscontainer">
                     <p>
                       From: {item.avdatestart.toLocaleString().split("T")[0]}
                     </p>
@@ -51,6 +52,7 @@ const ShowAvDates = (props) => {
       ) : (
         <p>You did not make yourself availible</p>
       )}
+      </div>
     </div>
   );
 };

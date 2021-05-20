@@ -28,12 +28,13 @@ const ShowNeedDates = (props) => {
   return (
     <div>
       <h3>You need a petsitter for these dates</h3>
+      <div className="pets">
       {need && need.length ? (
         need.map((item) => {
           return (
             <div key={item._id}>
-                <div className="petcards">
-                  <div className="petcardscontainer">
+                <div className="datecards">
+                  <div className="datecardscontainer">
                     <p>
                       From: {item.needdatestart.toLocaleString().split("T")[0]}
                     </p>
@@ -51,6 +52,7 @@ const ShowNeedDates = (props) => {
       ) : (
         <p>You have no selected dates</p>
       )}
+      </div>
     </div>
   );
 };

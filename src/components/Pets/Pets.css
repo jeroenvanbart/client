@@ -32,3 +32,41 @@
   text-align: left;
   margin-bottom: 10px;
 }
+
+
+@media screen and (min-width: 600px) {
+
+  .pets{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .petcards {
+    background-color: rgba(161, 143, 143, 0.8);
+    min-height: 40vh;
+    min-width: 38vw;
+    border-radius: 20px;
+    margin: 10px;
+    
+  }
+
+}
+
+@media screen and (min-width: 900px) {
+
+  .pets{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .petcards {
+    background-color: rgba(161, 143, 143, 0.8);
+    min-height: 40vh;
+    min-width: 28vw;
+    border-radius: 20px;
+    margin: 10px;
+    
+  }
+
+
+}

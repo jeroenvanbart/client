@@ -28,3 +28,16 @@
   align-self: center;
   margin-bottom: 30px;
 }
+
+.submitbutton:hover {
+  background-color: white;
+  color: rgba(87, 76, 76, 1);
+ 
+}
+
+.formfieldmail {
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: none;
+  
+}

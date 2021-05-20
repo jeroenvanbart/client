@@ -125,38 +125,49 @@ const Profile = (props) => {
 
   return (
     <div className="profilehead">
-      <div>
-        <h3>Welcome {details.username} </h3>
+      <div className="profilebox">
+        <div>
+          <h3>Welcome {details.username} </h3>
+          <div>
+          <img
+            className="profileheadimg"
+            src={details.profileImg}
+            alt="profileImg"
+          />
+        </div>
+          <div className="dashboardButtons">
+            <button onClick={editOptions}>Edit profile</button>
+            <button onClick={addPets}>Edit Pets</button>
+          </div>
+        </div>
         <div className="dashboardButtons">
-          <button onClick={editOptions}>Edit profile</button>
-          <button onClick={addPets}>Edit Pets</button>
+          <button onClick={searchDiv}>Search Sitter</button>
+          <button onClick={sitterDiv}>Be a Sitter</button>
         </div>
       </div>
-      <div>
-        <img
-          className="profileheadimg"
-          src={details.profileImg}
-          alt="profileImg"
-        />
-      </div>
-      <div className="dashboardButtons">
-        <button onClick={searchDiv}>Search Sitter</button>
-        <button onClick={sitterDiv}>Be a Sitter</button>
-      </div>
-      <div>
+
+      <div className="loadbox">
         {(() => {
           if (playDiv === "petCard") {
             return (
               <div>
-                <PetCards user={details} pets={listOfPets} />
-                <ShowNeedDates needdates={listNeedDates} />
-                <SearchSitter
-                  allavdates={AllAvDates}
-                  users={allUsers}
-                  needdates={listNeedDates}
-                  user={details}
-                />
-                <ShowAvDates avdates={listAvDates} />
+                <div>
+                  <PetCards user={details} pets={listOfPets} />
+                </div>
+                <div>
+                  <ShowNeedDates needdates={listNeedDates} />
+                </div>
+                <div>
+                  <SearchSitter
+                    allavdates={AllAvDates}
+                    users={allUsers}
+                    needdates={listNeedDates}
+                    user={details}
+                  />
+                </div>
+                <div>
+                  <ShowAvDates avdates={listAvDates} />
+                </div>
               </div>
             );
           } else if (playDiv === "edit") {
@@ -192,7 +203,11 @@ const Profile = (props) => {
                 <button className="dashboardButton" onClick={backToDashboard}>
                   Back to Dashboard
                 </button>
-                <UploadPets user={details} pets={listOfPets} back={backToDashboard} />
+                <UploadPets
+                  user={details}
+                  pets={listOfPets}
+                  back={backToDashboard}
+                />
               </div>
             );
           }

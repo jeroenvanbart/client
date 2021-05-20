@@ -71,7 +71,7 @@ const SearchSitter = (props) => {
   }, [sitters]);
 
   return (
-    <div>
+    <div className="boxoutline">
       <h3>Your matches</h3>
       {unique && unique.length ? (
         unique.map((item) => {
@@ -79,7 +79,7 @@ const SearchSitter = (props) => {
             <div key={item._id}>
               <h3>{item.username}</h3>
               <img className="datesimg" src={item.profileImg} alt="" />
-              <p>{item.email}</p>
+              <p>I love to take care of your pet!</p>
               <button className="dashboardButton" onClick={contactfield}>
                 Send a message
               </button>

@@ -21,9 +21,9 @@ const Home = () => {
             Sign up and browse people who love to take care of your pet.</p>
           </article>
           <article className="homearticle">
-          <h4>Do you want to be a petsitter?</h4>
-            <p>Want to care for a pet just because you like it or to earn a little pocketmoney, this is where you can offer your service.
-            Sign up and find people in need of your service.</p>
+          <h4>Become a petsitter?</h4>
+            <p>Whether you have a pet or you don't, as long as you love animals sign up for Pawtel. Here you find people that need 
+            you to take care of there pet. Don't be affraid to ask for a small fee in exchange for your service.</p>
           </article>
         </div>
       </section>

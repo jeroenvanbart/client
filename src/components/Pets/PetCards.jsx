@@ -6,8 +6,9 @@ const PetCards = (props) => {
   const { pets } = props;
 
   return (
-    <div>
-      <div>
+    <div className="boxoutline">
+    <h3>Your pets</h3>
+      <div className="pets">
         {pets.responseFromApi &&
           pets.responseFromApi.map((item) => {
             return (
