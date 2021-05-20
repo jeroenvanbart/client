@@ -15,17 +15,14 @@ const UploadPets = (props) => {
 
   const { responseFromApi } = props.pets;
 
-  console.log(responseFromApi);
-
   // HANDLE THE CHANGES IN THE INPUT FIELDS
   const handleInputChange = (event) => {
     const { name, value } = event.target;
-    setFormState({ ...formState, [name]: value });
+    setFormState({ ...formState, [name]: value, id: props.user._id });
   };
 
   useEffect(() => {
     setPet(responseFromApi);
-    console.log(pet);
   }, [responseFromApi]);
 
   // HANDLE FORM SUBMISSION
@@ -68,9 +65,13 @@ const UploadPets = (props) => {
       .catch((err) => console.error(err));
   };
 
+  // useEffect(() => {
+  //   pet && pet.length && setPet(responseFromApi);
+  // }, [responseFromApi, deletePet]);
+
   useEffect(() => {
-    pet && pet.length && setPet(responseFromApi);
-  }, [responseFromApi, deletePet]);
+    setPet(responseFromApi);
+  }, [responseFromApi]);
 
   return (
     <div>
@@ -142,15 +143,18 @@ const UploadPets = (props) => {
         pet.map((item) => {
           return (
             <div className="petcards" key={item._id}>
-            <div>
-            <h3>{item.name}</h3>
-              <img src={item.imageUrl} alt="" />
-
-            </div>
               <div>
-              <button className="dashboardButton" onClick={() => deletePet(item._id)}>Delete pet</button>
+                <h3>{item.name}</h3>
+                <img src={item.imageUrl} alt="" />
               </div>
-              
+              <div>
+                <button
+                  className="dashboardButton"
+                  onClick={() => deletePet(item._id)}
+                >
+                  Delete pet
+                </button>
+              </div>
             </div>
           );
         })}

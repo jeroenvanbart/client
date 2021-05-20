@@ -16,14 +16,9 @@ const Home = () => {
         </div>
         <div>
           <article className="homearticle">
-          <h4>Do you own a pet?</h4>
-            <p>If you go on holliday's or need someone to take care of your pet, this is where you find a petsitter. 
-            Sign up and browse people who love to take care of your pet.</p>
-          </article>
-          <article className="homearticle">
           <h4>Become a petsitter?</h4>
-            <p>Whether you have a pet or you don't, as long as you love animals sign up for Pawtel. Here you find people that need 
-            you to take care of there pet. Don't be affraid to ask for a small fee in exchange for your service.</p>
+            <p>Whether you have a pet or you don't, as long as you love animals Pawtel is the place to be. At Pawtel we connect people that are in need
+            of a petsitter with people who like to take care of pets. So if you're going on holidays and need someone to sit your pet or if you just like to have a guest, sign up for free today. </p>
           </article>
         </div>
       </section>

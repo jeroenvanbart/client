@@ -31,7 +31,7 @@ export class AvDate extends Component {
         <h3>Select your availibility</h3>
         <form className="form" onSubmit={this.handleFormSubmit}>
           <div>
-            <label for="start">Start date:  </label>
+            <label htmlFor="start">Start date:  </label>
             <input
               type="date"
               id="start"
@@ -41,7 +41,7 @@ export class AvDate extends Component {
             />
           </div>
           <div>
-            <label for="end">End date:  </label>
+            <label htmlFor="end">End date:  </label>
 
             <input
               type="date"

@@ -1,6 +1,6 @@
 .petcards {
   background-color: rgba(161, 143, 143, 0.8);
-  min-height: 20vh;
+  min-height: 25vh;
   border-radius: 20px;
   margin: 10px;
 }
@@ -24,6 +24,7 @@
   height: 100px;
   overflow: hidden;
   border-radius: 50%;
+ 
   
 }
 

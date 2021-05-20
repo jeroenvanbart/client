@@ -21,18 +21,22 @@ const ShowNeedDates = (props) => {
       .catch((err) => console.error(err));
   };
 
+  // useEffect(() => {
+  //   need && need.length && setNeed(responseFromApi);
+  // }, [responseFromApi, deleteDate]);
+
   useEffect(() => {
-    need && need.length && setNeed(responseFromApi);
-  }, [responseFromApi, deleteDate]);
+    setNeed(responseFromApi);
+  }, [responseFromApi]);
 
   return (
     <div>
       <h3>You need a petsitter for these dates</h3>
       <div className="pets">
-      {need && need.length ? (
-        need.map((item) => {
-          return (
-            <div key={item._id}>
+        {need && need.length ? (
+          need.map((item) => {
+            return (
+              <div key={item._id}>
                 <div className="datecards">
                   <div className="datecardscontainer">
                     <p>
@@ -41,17 +45,20 @@ const ShowNeedDates = (props) => {
                     <p>To: {item.needdateend.toLocaleString().split("T")[0]}</p>
                   </div>
                   <div>
-                    <button className="dashboardButton" onClick={() => deleteDate(item._id)}>
+                    <button
+                      className="dashboardButton"
+                      onClick={() => deleteDate(item._id)}
+                    >
                       Delete date
                     </button>
                   </div>
                 </div>
-            </div>
-          );
-        })
-      ) : (
-        <p>You have no selected dates</p>
-      )}
+              </div>
+            );
+          })
+        ) : (
+          <p>You have no selected dates</p>
+        )}
       </div>
     </div>
   );
