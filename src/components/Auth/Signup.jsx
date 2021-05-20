@@ -16,7 +16,6 @@ class Signup extends Component {
     this.service
       .signup(username, email, password, profileImg)
       .then((response) => {
-        console.log(response);
         this.setState({ username: "", email: "", password: "" , profileImg});
         this.props.setUser(response);
       })

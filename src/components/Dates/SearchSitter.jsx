@@ -85,7 +85,7 @@ const SearchSitter = (props) => {
               </button>
               {contact && (
                 <div>
-                  <ContactForm data={users} sitter={item.email} />
+                  <ContactForm data={props.user} sitter={item.email} />
                 </div>
               )}
             </div>

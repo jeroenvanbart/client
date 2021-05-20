@@ -142,18 +142,15 @@ const UploadPets = (props) => {
         pet.map((item) => {
           return (
             <div className="petcards" key={item._id}>
+            <div>
+            <h3>{item.name}</h3>
+              <img src={item.imageUrl} alt="" />
+
+            </div>
               <div>
-                <h3>{item.name}</h3>
-                <img src={item.imageUrl} alt="" />
+              <button className="dashboardButton" onClick={() => deletePet(item._id)}>Delete pet</button>
               </div>
-              <div>
-                <button
-                  className="dashboardButton"
-                  onClick={() => deletePet(item._id)}
-                >
-                  Delete pet
-                </button>
-              </div>
+              
             </div>
           );
         })}

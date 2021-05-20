@@ -140,7 +140,7 @@ const Profile = (props) => {
         />
       </div>
       <div className="dashboardButtons">
-        <button onClick={searchDiv}>Search for Sitter</button>
+        <button onClick={searchDiv}>Search Sitter</button>
         <button onClick={sitterDiv}>Be a Sitter</button>
       </div>
       <div>

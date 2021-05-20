@@ -22,9 +22,10 @@ class UserService {
       .put(`/profile/${profileId}`, data)
       .then((response) => response.data);
 
-  sendEmail =(email, subject, message, useremail ) => {
-    this.service
-    .post('/send-email', {email, subject, message, useremail} )
+  sendEmail =(FormData) => {
+    console.log(FormData)
+    return this.service
+    .post('/send-email', FormData)
     .then((response) => response.data)
   }
 }
