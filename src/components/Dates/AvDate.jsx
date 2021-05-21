@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import DateService from "../../services/DateService";
 
 export class AvDate extends Component {
-  state = { needdatestart: "", needdateend: "" };
+  state = { avdatestart: "", avdateend: "" };
+
   service = new DateService();
 
   handleFormSubmit = (event) => {

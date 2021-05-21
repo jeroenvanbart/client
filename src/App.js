@@ -32,10 +32,10 @@ function App() {
     }
   };
   
-  // SET THE GLOBAL APP STATE WITH THE LOGGED IN USER
+
   const setTheUserToGlobalState = (userObj) => setLoggedInUser(userObj);
 
-  // CALL THE AUTHENTICATION CHECK EVERY TIME THE APP LOADS
+  
   fetchUserFromBE();
 
   return loggedInUser ? (

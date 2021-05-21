@@ -28,7 +28,7 @@ const Navbar = ({ userInSession, setUser }) => {
       <div>
         <ul style={{ listStyleType: "none" }} className="loggedinnav">
           <li>
-            <Link to={"/"} style={{ textDecoration: "none", color: "white" }}>
+            <Link to={"/home"} style={{ textDecoration: "none", color: "white" }}>
               Home
             </Link>
           </li>
