@@ -17,7 +17,7 @@ const PetCards = (props) => {
                 <p>is a {item.pettype}</p>
                 <img src={item.imageUrl} alt="" />
                 <div className="petcardscontainer">
-                  <div>
+                  <div className="pettext">
                     <p>{item.bio}</p>
                     <p>{item.notes}</p>
                   </div>
